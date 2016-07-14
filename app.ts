@@ -4,17 +4,19 @@ import {Component} from "@angular/core";
 @Component({
     selector: "hello-world",
     template: `
-        <div>
-            Hello {{name}}!
-        </div>
+        <ul>
+            <li *ngFor="let name of names">
+                Hello {{name}}
+            </li> 
+        </ul>
     `
 })
 
 class HelloWorld {
-    name : string;
+    names : string[];
 
     constructor() {
-        this.name = "Jiwoong";
+        this.names = ["Jiwoong", "Dustin", "Youn", "Light"];
     }
 }
 
