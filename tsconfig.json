@@ -11,9 +11,9 @@
   },
   "files": [
     "app.ts",
-    "intermediates/app-02.ts",
-    "intermediates/app-03.ts",
-    "intermediates/app-04.ts",
+    //"intermediates/app-02.ts",
+    //"intermediates/app-03.ts",
+    //"intermediates/app-04.ts",
     "typings/browser.d.ts"
   ],
   "exclude": [
