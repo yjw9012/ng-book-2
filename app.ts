@@ -58,15 +58,12 @@ class Article {
                 </li>
             </ul>
         </div>
-    `
+    `,
+    inputs: ["article"]
 })
 
 class ArticleComponent {
     article: Article;
-
-    constructor() {
-        this.article = new Article("Angular 2", "http://angular.io", 10);
-    }
 
     voteUp() : boolean {
         this.article.voteUp();
@@ -100,14 +97,23 @@ class ArticleComponent {
         </form>
 
         <div class="ui grid posts">
-            <reddit-article></reddit-article>
+            <reddit-article
+                *ngFor="let eachArticle of articles"
+                [article]="eachArticle">
+            </reddit-article>
         </div>
     `
 })
 
 class RedditApp {
+    articles: Article[];
 
     constructor() {
+        this.articles = [
+            new Article("Angular 2", "http://angular.io", 5),
+            new Article("Fullstack", "http://fullstack.io", 3),
+            new Article("Angular Homepage", "http://angular.io", 9)
+        ];
     }
 
     addArticle(newTitle: HTMLInputElement, newLink: HTMLInputElement) : void {
