@@ -21,6 +21,15 @@ class Article {
         this.votes -= 1;
         return false;
     }
+
+    getDomain() : string {
+        try {
+            const link : string = this.link.split("//")[1];
+            return link.split("/")[0];
+        } catch (ex) {
+            return null;
+        }
+    }
 }
 
 @Component({
@@ -43,6 +52,7 @@ class Article {
             <a class="ui large header" href="{{article.link}}">
                 {{article.title}}
             </a>
+            <div class="meta">({{article.getDomain()}})</div>
             <ul class="ui big horizontal list voters">
                 <li class="item">
                     <a href (click)="voteUp()">
